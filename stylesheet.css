@@ -1,9 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 h1 {
+  background-color: rgb(48, 57, 106);
   text-align: center;
-  font-size: 80px;
-  color: rgb(58, 58, 101);
+  font-size: 4vw;
+  color: rgb(255, 255, 255);
+  margin-top: 5px;
+  padding: 5px 0;
+  font-family: "Bungee";
+  font-weight: lighter;
+  text-shadow: 5px 4px 0px rgba(0, 0, 0, 0.8);
 }
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(71, 85, 165);
+}
+
+main {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  box-sizing: border-box;
+}
+
+.Left {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+  margin-left: 0;
+  box-sizing: border-box;
+  clear: none;
+  /* Optional styling */
+  background: #2e3560;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.Right {
+  float: right;
+  width: 48%;
+  margin-left: 2%;
+  margin-right: 0;
+  box-sizing: border-box;
+  clear: none;
+  /* Optional styling */
+  background: #2e3560;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.Left,
+.Right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  line-height: 1.5;
+  text-decoration: none;
+  text-align: center;
+  font-size: 50px;
+  font-family: "Lato";
+  font-weight: bold;
+  text-shadow: 5px 4px 0px rgba(0, 0, 0, 0.8);
+  box-shadow: rgb(20, 38, 79) 5px 5px 5px;
+  transition: transform 0.18s cubic-bezier(0.4, 1.5, 0.5, 1.1);
+}
+
+.Left:hover,
+.Right:hover {
+  transform: scale(1.04);
+}
+
+/* Ensure stacking when boxes overflow or on small screens */
+@media (max-width: 900px) {
+  .Left,
+  .Right {
+    float: none;
+    width: 96%;
+    margin: 2% auto;
+    display: block;
+    clear: both;
+  }
+}
+
+/* Clearfix for parent containers */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
