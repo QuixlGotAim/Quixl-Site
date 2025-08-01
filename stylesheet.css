@@ -66,6 +66,7 @@ main {
   text-shadow: 5px 4px 0px rgba(0, 0, 0, 0.8);
   box-shadow: rgb(20, 38, 79) 5px 5px 5px;
   transition: transform 0.18s cubic-bezier(0.4, 1.5, 0.5, 1.1);
+  margin-bottom: 24px;
 }
 
 .Left:hover,
@@ -79,7 +80,7 @@ main {
   .Right {
     float: none;
     width: 96%;
-    margin: 2% auto;
+    margin: 2% auto 24px auto;
     display: block;
     clear: both;
   }
