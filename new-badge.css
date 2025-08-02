@@ -1,0 +1,28 @@
+.new-badge {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  background: #2ecc40;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 8px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+  animation: wobble 4s linear infinite;
+  z-index: 2;
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
