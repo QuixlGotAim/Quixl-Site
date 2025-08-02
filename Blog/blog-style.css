@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+.blog-list-section {
+  background: #2e3560;
+  color: #fff;
+  padding: 32px 24px 24px 24px;
+  border-radius: 16px;
+  box-shadow: rgb(20, 38, 79) 5px 5px 16px;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+}
+
+.blog-list-title {
+  font-family: "Bungee";
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: lighter;
+  text-shadow: 5px 4px 0px rgba(0, 0, 0, 0.8);
+  margin-bottom: 36px;
+}
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blog-list li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.blog-list .Right {
+  width: 80%;
+  min-height: 80px;
+  font-size: 2em;
+  font-family: "Lato";
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 5px 4px 0px rgba(0, 0, 0, 0.8);
+  box-shadow: rgb(20, 38, 79) 5px 5px 5px;
+  background: rgb(71, 85, 165);
+  color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 0;
+  transition: transform 0.18s cubic-bezier(0.4, 1.5, 0.5, 1.1);
+  text-decoration: none;
+}
+
+.blog-list .Right:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 900px) {
+  .blog-list-section {
+    padding: 16px 4vw 16px 4vw;
+    border-radius: 8px;
+    margin: 16px auto 0 auto;
+  }
+  .blog-list .Right {
+    width: 98%;
+    font-size: 1.2em;
+    min-height: 60px;
+  }
+}

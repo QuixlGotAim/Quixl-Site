@@ -15,16 +15,29 @@ posts = [f for f in os.listdir(BLOG_DIR) if f.endswith(".html") and f != "index.
 
 # Sort by date in filename (assumes YYYY-MM-DD at start)
 def extract_date_title(filename):
-    match = re.match(r"(\d{4}-\d{2}-\d{2})-(.*)\.html", filename)
-    if match:
-        date_str, title = match.groups()
+    # Try ISO format first
+    match_iso = re.match(r"(\d{4})-(\d{2})-(\d{2})-(.*)\.html", filename)
+    if match_iso:
+        year, month, day, title = match_iso.groups()
         try:
-            date = datetime.strptime(date_str, "%Y-%m-%d")
+            date = datetime.strptime(f"{year}-{month}-{day}", "%Y-%m-%d")
         except ValueError:
             date = None
-        title = title.replace("-", " ").strip() or date_str
-        return (date, date_str, title)
-    return (None, filename, filename)
+        nz_date = f"{day}-{month}-{year}"
+        title = title.replace("-", " ").strip() or nz_date
+        return (date, nz_date, title, filename)
+    # Try NZ format
+    match_nz = re.match(r"(\d{2})-(\d{2})-(\d{4})-(.*)\.html", filename)
+    if match_nz:
+        day, month, year, title = match_nz.groups()
+        try:
+            date = datetime.strptime(f"{year}-{month}-{day}", "%Y-%m-%d")
+        except ValueError:
+            date = None
+        nz_date = f"{day}-{month}-{year}"
+        title = title.replace("-", " ").strip() or nz_date
+        return (date, nz_date, title, filename)
+    return (None, filename, filename, filename)
 
 posts_info = [extract_date_title(f) for f in posts]
 posts_info = [p for p in posts_info if p[0] is not None]
@@ -32,8 +45,8 @@ posts_info.sort(reverse=True)
 
 # Build post list HTML
 post_list = ""
-for date, date_str, title in posts_info:
-    post_list += f'    <a class="Right" href="{date_str}-{title.replace(" ", "-")}.html">{date_str}: {title}</a>\n'
+for date, nz_date, title, filename in posts_info:
+    post_list += f'  <li><a class="Right" href="{filename}">{nz_date}: {title}</a></li>\n'
 
 # Read template and replace marker
 with open(INDEX_PATH, "r", encoding="utf-8") as f:
