@@ -1,0 +1,11 @@
+# The title and description for your blog
+title: My Awesome Blog
+description: A blog about things and stuff.
+
+# The subpath of your site, e.g. /blog
+# This is CRITICAL for your blog to build correctly in a subdirectory.
+# Replace "QUIXL-SITE" with your repository name if it's different.
+baseurl: "/QUIXL-SITE/Blog"
+
+# The base hostname & protocol for your site
+url: "https://quixlgotaim.github.io"
