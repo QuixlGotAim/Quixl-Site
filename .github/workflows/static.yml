@@ -31,7 +31,6 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         # This action builds your Jekyll site from the /Blog directory
-        # and places the output into ./_site/Blog
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./Blog
@@ -39,6 +38,7 @@ jobs:
       - name: Copy root files to build directory
         # This step copies your other files (like index.html) into the final build directory
         run: |
+          mkdir -p ./_site
           cp index.html ./_site/
           cp stylesheet.css ./_site/
           cp -r ProjectQuixl ./_site/
